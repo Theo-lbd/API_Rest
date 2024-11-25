@@ -1,7 +1,7 @@
 import requests
 from datetime import datetime, timezone
 
-API_KEY = "YOUR_KEY"
+API_KEY = "API_KEY"
 
 
 def fetch_weather_forecast(city):
