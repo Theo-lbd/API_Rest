@@ -1,0 +1,7 @@
+Flask==2.2.2
+Flask-SQLAlchemy==2.5.1
+Flask-Marshmallow==0.14.0
+Marshmallow==3.18.0
+PyYAML==6.0.2
+connexion[swagger-ui]==2.14.1
+setuptools>=58.0.0

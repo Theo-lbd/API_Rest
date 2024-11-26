@@ -1,0 +1,75 @@
+swagger: "2.0"
+info:
+  title: "RP Flask REST API"
+  description: "An API about people and notes"
+  version: "1.0.0"
+basePath: "/api"
+schemes:
+  - "http"
+paths:
+  /people:
+    get:
+      summary: "Read the list of people"
+      operationId: "people.read_all"
+      responses:
+        200:
+          description: "A list of people"
+    post:
+      summary: "Create a person"
+      operationId: "people.create"
+      parameters:
+        - in: "body"
+          name: "person"
+          required: true
+          schema:
+            $ref: "#/definitions/Person"
+      responses:
+        201:
+          description: "Person created"
+  /people/{lname}:
+    get:
+      summary: "Read one person"
+      operationId: "people.read_one"
+      parameters:
+        - name: "lname"
+          in: "path"
+          type: "string"
+          required: true
+      responses:
+        200:
+          description: "A single person"
+    put:
+      summary: "Update a person"
+      operationId: "people.update"
+      parameters:
+        - name: "lname"
+          in: "path"
+          type: "string"
+          required: true
+        - in: "body"
+          name: "person"
+          required: true
+          schema:
+            $ref: "#/definitions/Person"
+      responses:
+        200:
+          description: "Person updated"
+    delete:
+      summary: "Delete a person"
+      operationId: "people.delete"
+      parameters:
+        - name: "lname"
+          in: "path"
+          type: "string"
+          required: true
+      responses:
+        200:
+          description: "Person deleted"
+definitions:
+  Person:
+    type: "object"
+    properties:
+      lname:
+        type: "string"
+      fname:
+        type: "string"
